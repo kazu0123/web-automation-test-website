@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - HOST_UID=${HOST_UID}
+    volumes:
+      - .:/workspace:cached
+    tty: true

@@ -1,0 +1,12 @@
+{
+  "name": "Container",
+
+  "dockerComposeFile": "../compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace/",
+  "remoteUser": "vscode",
+
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	}
+}
