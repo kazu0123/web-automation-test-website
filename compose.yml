@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   app:
+    env_file: .env
     build: 
       context: .
       dockerfile: Dockerfile
@@ -10,3 +11,18 @@ services:
     volumes:
       - .:/workspace:cached
     tty: true
+    network_mode: service:db
+
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    user: ${HOST_UID}:${HOST_UID}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql:cached
