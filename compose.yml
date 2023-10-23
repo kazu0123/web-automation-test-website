@@ -10,6 +10,7 @@ services:
         - HOST_UID=${HOST_UID}
     volumes:
       - .:/workspace:cached
+      - /workspace/web/node_modules
     tty: true
     network_mode: service:db
 

@@ -5,6 +5,7 @@
   "service": "app",
   "workspaceFolder": "/workspace/",
   "remoteUser": "vscode",
+  "postCreateCommand": "sudo chown vscode /workspace/web/node_modules && cd web/ && npm install",
 
 	"features": {
 		"ghcr.io/devcontainers/features/github-cli:1": {}
